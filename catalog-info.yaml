@@ -9,4 +9,4 @@ spec:
   owner: user:alejovicu
   lifecycle: experimental
   providesApis:
-    - http://localhost:8080
+    - hello-world-scania
