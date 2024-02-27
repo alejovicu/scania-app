@@ -6,5 +6,7 @@ metadata:
     github.com/project-slug: alejovicu/scania-app
 spec:
   type: service
-  owner: user:guest
+  owner: user:alejovicu
   lifecycle: experimental
+  providesApis:
+    - http://localhost:8080
