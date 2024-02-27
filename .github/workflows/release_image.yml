@@ -16,7 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - run: |
-      docker build -t ${{ env.IMAGE_NAME }}:$(cat version) .
-      echo ${{ secrets.DOCKER_HUB_PASS }} | docker login --username ${{ env.DOCKER_HUB_USER }} --password-stdin ${{ env.REGISTRY }}
-      docker push ${{ env.IMAGE_NAME }}:$(cat version)
+    - run: docker build -t ${{ env.IMAGE_NAME }}:$(cat version) .
+    - run: echo ${{ secrets.DOCKER_HUB_PASS }} | docker login --username ${{ env.DOCKER_HUB_USER }} --password-stdin ${{ env.REGISTRY }}
+    - run: docker push ${{ env.IMAGE_NAME }}:$(cat version)
