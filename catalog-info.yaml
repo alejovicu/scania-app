@@ -1,4 +1,11 @@
 apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: scania-hello-world-system
+spec:
+  owner: user:alejovicu
+---
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: scania-app
@@ -8,5 +15,28 @@ spec:
   type: service
   owner: user:alejovicu
   lifecycle: experimental
+  system: scania-hello-world-system
   providesApis:
-    - hello-world-scania
+    - hello-world-scania-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: hello-world-scania-api
+  description: API for hello world app
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: user:alejovicu
+  system: scania-hello-world-system
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: Hello World Scania API
+    servers:
+      - url: http://localhost:8080/api/v1
+    paths:
+      /health:
+        get:
+          summary: Status of the application
