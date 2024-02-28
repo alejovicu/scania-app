@@ -1,0 +1,17 @@
+name: Deploy Scania HW App to nonprod 
+
+on:
+  workflow_dispatch:
+    inputs:
+      scania_app_version:
+        description: 'Scania app docker image version to deploy in Nonprod'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: hashicorp/setup-terraform@v3
+    - run: cd gitops/nonprod ; terraform init ; terraform apply -var="scania_app_version=${{inputs.scania_app_version}}" -auto-approve
