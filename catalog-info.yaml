@@ -11,6 +11,7 @@ metadata:
   name: scania-app
   annotations:
     github.com/project-slug: alejovicu/scania-app
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: user:alejovicu
