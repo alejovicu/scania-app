@@ -8,10 +8,14 @@ on:
         required: true
         type: string
 
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v3
-    - run: cd gitops/nonprod ; terraform init ; terraform apply -var="scania_app_version=${{inputs.scania_app_version}}" -auto-approve
+    - run: cd gitops/nonprod ; terraform init ; terraform apply -var="scania_app_version=${{ inputs.scania_app_version }}" -auto-approve
