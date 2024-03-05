@@ -3,6 +3,7 @@ resource "aws_instance" "scania_app" {
   ami                         = var.ami
   instance_type               = var.instance_type
   associate_public_ip_address = true
+  user_data_replace_on_change = true
   key_name                    = "debug"
   tags = {
     Name = "scania-app"
