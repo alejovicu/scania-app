@@ -22,3 +22,10 @@ You can deploy it with
 yarn install
 yarn dev
 ```
+
+## Build and run docker image locally
+
+```sh
+docker build -t alejovicu/scania-app:local .
+docker run -d --name scania-app -p 8080:8080 alejovicu/scania-app:local
+```

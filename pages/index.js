@@ -13,7 +13,7 @@ export default function Home() {
        <img className={styles.scaniaLogo} src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SCANIA_Logo_vector.svg/2560px-SCANIA_Logo_vector.svg.png"
           alt="Scania logo" />
         <h1 className={styles.title}>
-          This is a Hello World app
+          This is a Hello World app V2
         </h1>
       </main>
 
